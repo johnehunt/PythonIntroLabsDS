@@ -5,6 +5,7 @@ def average(data):
 		raw_data = list(map(lambda r: r.temp(), data))
 		return sum(raw_data) / len(raw_data)
 
+
 def minimum(data):
 	return min(data)
 
