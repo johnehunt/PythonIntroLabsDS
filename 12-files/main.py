@@ -1,5 +1,3 @@
-import matplotlib.pyplot as pyplot
-
 from loader import load_data
 from utils import *
 
