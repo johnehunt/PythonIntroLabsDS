@@ -47,8 +47,25 @@ def data_range(data):
 	return minimum(data), maximum(data)
 
 
+def bubble_sort(data):
+	data_list = list(data)
+	pass_number = 0
+	for i in range(len(data_list) - 1, 0, -1):
+		exchanges = False
+		pass_number += 1
+		for j in range(0, i):
+			if data_list[j].temp > data_list[j + 1].temp:
+				exchanges = True
+				temp = data_list[j]
+				data_list[j] = data_list[j + 1]
+				data_list[j + 1] = temp
+		if not exchanges:
+			break
+	return data_list
+
+
 def median(data):
-	sorted_data = sorted(data)
+	sorted_data = bubble_sort(data)
 	data_length = len(data)
 	index = (data_length - 1) // 2
 
