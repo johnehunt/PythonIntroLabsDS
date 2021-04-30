@@ -2,7 +2,7 @@ def average(data):
 	if isinstance(data[0], int):
 		return sum(data) / len(data)
 	else:
-		raw_data = list(map(lambda r: r.temp(), data))
+		raw_data = list(map(lambda r: r.value, data))
 		return sum(raw_data) / len(raw_data)
 
 

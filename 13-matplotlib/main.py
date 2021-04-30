@@ -11,13 +11,13 @@ def main():
 		print(reading)
 
 	# Obtain just the temperatures, dates and the indexes for each value
-	temperatures = list(map(lambda r: r.temp(), readings))
+	temperatures = list(map(lambda r: r.value, readings))
 	print('Temperatures:', temperatures)
 	dates = list(map(lambda r: r.date, readings))
 	print('Dates:', dates)
 
 	# Find all temperatures above 14.0
-	higher_temperatures = list(filter(lambda r: r.temp() > 14.0, readings))
+	higher_temperatures = list(filter(lambda r: r.value > 14.0, readings))
 	print('Temperatures above 14.0:', higher_temperatures)
 
 	# Generate a range for the indexes of the bar chart

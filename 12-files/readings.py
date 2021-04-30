@@ -43,9 +43,6 @@ class TemperatureReading(Reading):
 		super().__init__(temp, date, location)
 		self.scale = scale
 
-	def temp(self):
-		return self.value
-
 	def __add__(self, other):
 		new_value = self.value + other.value
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
@@ -75,4 +72,3 @@ class RainfallReading(Reading):
 
 	def __str__(self):
 		return 'RainfallReading[' + self.time + '](' + super().__str__() + ')'
-

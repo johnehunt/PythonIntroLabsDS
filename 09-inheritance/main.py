@@ -44,9 +44,6 @@ class TemperatureReading(Reading):
 		super().__init__(temp, date, location)
 		self.scale = scale
 
-	def temp(self):
-		return self.value
-
 	def __add__(self, other):
 		new_value = self.value + other.value
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
@@ -82,7 +79,7 @@ def average(data):
 	if isinstance(data[0], int):
 		return sum(data) / len(data)
 	else:
-		raw_data = list(map(lambda r: r.temp(), data))
+		raw_data = list(map(lambda r: r.value, data))
 		return sum(raw_data) / len(raw_data)
 
 
@@ -122,13 +119,13 @@ def main():
 	]
 
 	# Obtain just the temperatures, dates and the indexes for each value
-	temperatures = list(map(lambda r: r.temp(), readings))
+	temperatures = list(map(lambda r: r.value, readings))
 	print('Temperatures:', temperatures)
 	dates = list(map(lambda r: r.date, readings))
 	print('Dates:', dates)
 
 	# Find all temperatures above 14.0
-	higher_temperatures = list(filter(lambda r: r.temp() > 14.0, readings))
+	higher_temperatures = list(filter(lambda r: r.value > 14.0, readings))
 	print('Temperatures above 14.0:', higher_temperatures)
 
 	# Find minimum, maximum etc in readings
