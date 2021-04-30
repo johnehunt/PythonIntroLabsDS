@@ -1,6 +1,3 @@
-from readings import TemperatureReading
-from utils import *
-
 
 class Reading:
 	"""Root class for all types of readings"""
