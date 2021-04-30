@@ -9,8 +9,18 @@ def main():
 	readings = load_data('data.csv')
 	for reading in readings:
 		print(reading)
-	dates = list(map(lambda r: r.date, readings))
+
+	# Obtain just the temperatures, dates and the indexes for each value
 	temperatures = list(map(lambda r: r.temp(), readings))
+	print('Temperatures:', temperatures)
+	dates = list(map(lambda r: r.date, readings))
+	print('Dates:', dates)
+
+	# Find all temperatures above 14.0
+	higher_temperatures = list(filter(lambda r: r.temp() > 14.0, readings))
+	print('Temperatures above 14.0:', higher_temperatures)
+
+	# Generate a range for the indexes of the bar chart
 	index = range(len(readings))
 
 	# Find minimum, maximum etc in readings
