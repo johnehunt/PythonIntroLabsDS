@@ -106,6 +106,10 @@ def median(data):
 		return (sorted_data[index] + sorted_data[index + 1]) / 2.0
 
 
+def celsius_to_fahrenheit(celsius):
+	return (celsius * 9 / 5) + 32
+
+
 def main():
 	# Set up the data the data file
 	readings = [
@@ -117,6 +121,10 @@ def main():
 			TemperatureReading(14.6, '05/05/20', 'London', 'Celsius'),
 			TemperatureReading(15.6, '05/05/20', 'London', 'Celsius')
 	]
+
+	# Convert all the temperatures from Celsius to fahrenheit
+	fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.value), readings))
+	print('Fahrenheit Temperatures:', fahrenheit_temperatures)
 
 	# Obtain just the temperatures, dates and the indexes for each value
 	temperatures = list(map(lambda r: r.value, readings))

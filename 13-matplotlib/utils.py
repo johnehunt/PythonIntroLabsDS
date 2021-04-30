@@ -27,3 +27,7 @@ def median(data):
 		return sorted_data[index]
 	else:
 		return (sorted_data[index] + sorted_data[index + 1]) / 2.0
+
+
+def celsius_to_fahrenheit(celsius):
+	return (celsius * 9 / 5) + 32

@@ -8,6 +8,11 @@ def main():
 	readings = load_data('data.csv')
 	for reading in readings:
 		print(reading)
+
+	# Convert all the temperatures from Celsius to fahrenheit
+	fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.value), readings))
+	print('Fahrenheit Temperatures:', fahrenheit_temperatures)
+
 	# Obtain just the temperatures, dates and the indexes for each value
 	temperatures = list(map(lambda r: r.value, readings))
 	print('Temperatures:', temperatures)

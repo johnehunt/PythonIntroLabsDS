@@ -15,6 +15,10 @@ def main():
 			TemperatureReading(15.6, '05/05/20', 'London', 'Celsius')
 	]
 
+	# Convert all the temperatures from Celsius to fahrenheit
+	fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.value), readings))
+	print('Fahrenheit Temperatures:', fahrenheit_temperatures)
+
 	# Obtain just the temperatures, dates and the indexes for each value
 	temperatures = list(map(lambda r: r.value, readings))
 	print('Temperatures:', temperatures)
