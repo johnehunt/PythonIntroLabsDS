@@ -44,11 +44,17 @@ class TemperatureReading(Reading):
 		self.scale = scale
 
 	def __add__(self, other):
-		new_value = self.value + other.value
+		if isinstance(other, int) or isinstance(other, float):
+			new_value = self.temp + other
+		else:
+			new_value = self.temp + other.temp
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
 
 	def __sub__(self, other):
-		new_value = self.value - other.value
+		if isinstance(other, int) or isinstance(other, float):
+			new_value = self.temp - other
+		else:
+			new_value = self.temp - other.temp
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
 
 	def __str__(self):
@@ -63,11 +69,17 @@ class RainfallReading(Reading):
 		self.time = time
 
 	def __add__(self, other):
-		new_value = self.value + other.value
+		if isinstance(other, int) or isinstance(other, float):
+			new_value = self.value + other
+		else:
+			new_value = self.value + other.temp
 		return RainfallReading(new_value, self.date, self.time, self.location)
 
 	def __sub__(self, other):
-		new_value = self.value - other.value
+		if isinstance(other, int) or isinstance(other, float):
+			new_value = self.value - other
+		else:
+			new_value = self.value - other.temp
 		return RainfallReading(new_value, self.date, self.time, self.location)
 
 	def __str__(self):
