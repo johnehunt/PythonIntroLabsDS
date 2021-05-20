@@ -1,4 +1,4 @@
-
+# Example illustrating defining and invoking functions
 
 def average(data):
 	return sum(data) / len(data)
@@ -31,22 +31,18 @@ def celsius_to_fahrenheit(celsius):
 	return (celsius * 9/5) + 32
 
 
-def main():
-	# Set up the data the data file
-	readings = [13.5, 12.6, 15.3, 12.2, 16.6, 14.6, 15.6]
+# Set up the readings to process
+readings = [13.5, 12.6, 15.3, 12.2, 16.6, 14.6, 15.6]
 
-	# Find minimum, maximum etc in readings
-	print('Min temp in list =', minimum(readings))
-	print('Max temp in list =', maximum(readings))
-	print('Average temperature = {:.2f}'.format(average(readings)))
-	print('Median temperature value =', median(readings))
-	readings_range = data_range(readings)
-	print('Range of temperatures from ', str(readings_range[0]) + ' to ' + str(readings_range[1]))
+# Find minimum, maximum etc in readings
+print(f'Min temp in list = {minimum(readings)}')
+print(f'Max temp in list = {maximum(readings)}')
+print('Average temperature = {:.2f}'.format(average(readings)))
+print(f'Median temperature value = {median(readings)}')
+readings_range = data_range(readings)
+print('Range of temperatures from ', str(readings_range[0]) + ' to ' + str(readings_range[1]))
 
-	print('13.5 celsius as fahrenheit -', celsius_to_fahrenheit(13.5))
+print('13.5 celsius as fahrenheit -', celsius_to_fahrenheit(13.5))
 
-	print('Done')
+print('Done')
 
-
-if __name__ == '__main__':
-	main()
