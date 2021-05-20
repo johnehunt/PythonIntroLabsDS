@@ -1,5 +1,6 @@
 def prime_number_generator(num):
 	""" Provides a sequence of prime numbers up to num"""
+
 	# Assume a number is a prime number until proved otherwise
 	prime_number = True
 	for i in range(2, num):
