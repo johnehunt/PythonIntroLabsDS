@@ -1,3 +1,4 @@
-print('Hello')
-name = input('Please enter your name: ')
-print('Welcome', name)
+print('Hello World')
+print('-' * 25)
+print(2 + 3)
+
