@@ -1,5 +1,5 @@
 class TemperatureReading:
-	""" Specialised version of Reading to incorporates temperature info """
+	""" Class representing temperature info """
 
 	def __init__(self, temp, date, location, scale):
 		self.temp = temp
@@ -64,57 +64,65 @@ def bubble_sort(data):
 	return data_list
 
 
+def extract_readings(reading):
+	return reading.temp
+
+
 def median(data):
-	sorted_data = bubble_sort(data)
+
+	data.sort(key=extract_readings)
+	print(*data, sep = ", ")
+
+	# sorted_data = bubble_sort(data)
 	data_length = len(data)
 	index = (data_length - 1) // 2
 
 	if data_length % 2:
-		return sorted_data[index]
+		return data[index]
 	else:
-		return (sorted_data[index] + sorted_data[index + 1]) / 2.0
+		return (data[index] + data[index + 1]) / 2.0
 
 
 def celsius_to_fahrenheit(celsius):
 	return (celsius * 9 / 5) + 32
 
 
-def main():
-	# Set up the data the data file
-	readings = [
-			TemperatureReading(13.5, '01/05/20', 'London', 'Celsius'),
-			TemperatureReading(12.6, '02/05/20', 'London', 'Celsius'),
-			TemperatureReading(15.3, '03/05/20', 'London', 'Celsius'),
-			TemperatureReading(12.2, '04/05/20', 'London', 'Celsius'),
-			TemperatureReading(16.6, '05/05/20', 'London', 'Celsius'),
-			TemperatureReading(14.6, '05/05/20', 'London', 'Celsius'),
-			TemperatureReading(15.6, '05/05/20', 'London', 'Celsius')
-	]
-
-	# Convert all the temperatures from Celsius to fahrenheit
-	fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.temp), readings))
-	print('Fahrenheit Temperatures:', fahrenheit_temperatures)
-
-	# Obtain just the temperatures, dates and the indexes for each value
-	temperatures = list(map(lambda r: r.temp, readings))
-	print('Temperatures:', temperatures)
-	dates = list(map(lambda r: r.date, readings))
-	print('Dates:', dates)
-
-	# Find all temperatures above 14.0
-	higher_temperatures = list(filter(lambda r: r.temp > 14.0, readings))
-	print('Temperatures above 14.0:', higher_temperatures)
-
-	# Find minimum, maximum etc in readings
-	print('Min temp in list =', minimum(readings))
-	print('Max temp in list =', maximum(readings))
-	print('Average temperature = {:.2f}'.format(average(readings)))
-	print('Median temperature value =', median(readings))
-	readings_range = data_range(readings)
-	print('Range of temperatures from ', str(readings_range[0].temp) + ' to ' + str(readings_range[1].temp))
-
-	print('Done')
+# Set up the data the data file
+readings = [
+		TemperatureReading(13.5, '01/05/20', 'London', 'Celsius'),
+		TemperatureReading(12.6, '02/05/20', 'London', 'Celsius'),
+		TemperatureReading(15.3, '03/05/20', 'London', 'Celsius'),
+		TemperatureReading(12.2, '04/05/20', 'London', 'Celsius'),
+		TemperatureReading(16.6, '05/05/20', 'London', 'Celsius'),
+		TemperatureReading(14.6, '05/05/20', 'London', 'Celsius'),
+		TemperatureReading(15.6, '05/05/20', 'London', 'Celsius')
+]
 
 
-if __name__ == '__main__':
-	main()
+print('All Temperature Readings:')
+print(*readings, sep=", ")
+
+# Convert all the temperatures from Celsius to fahrenheit
+fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.temp), readings))
+print('Fahrenheit Temperatures:', fahrenheit_temperatures)
+
+# Obtain just the temperatures, dates and the indexes for each value
+temperatures = list(map(lambda r: r.temp, readings))
+print('Temperatures:', temperatures)
+dates = list(map(lambda r: r.date, readings))
+print('Dates:', dates)
+
+# Find all temperatures above 14.0
+higher_temperatures = list(filter(lambda r: r.temp > 14.0, readings))
+print('Temperatures above 14.0:', *higher_temperatures)
+
+# Find minimum, maximum etc in readings
+print('Min temp in list =', minimum(readings))
+print('Max temp in list =', maximum(readings))
+print('Average temperature = {:.2f}'.format(average(readings)))
+print('Median temperature value =', median(readings))
+readings_range = data_range(readings)
+print('Range of temperatures from ', str(readings_range[0].temp) + ' to ' + str(readings_range[1].temp))
+
+print('Done')
+
