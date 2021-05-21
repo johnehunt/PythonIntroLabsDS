@@ -13,39 +13,9 @@ class Reading:
 	"""Root class for all types of readings"""
 
 	def __init__(self, value, date, location):
-		self._value = value
-		self._date = date
-		self._location = location
-
-	@property
-	def value(self):
-		""" The docstring for the value property """
-		return self._value
-
-	@value.setter
-	def value(self, value):
-		if isinstance(value, int) or isinstance(value, float):
-			self._value = value
-
-	@property
-	def date(self):
-		""" The docstring for the date property """
-		return self._date
-
-	@date.setter
-	def date(self, value):
-		if isinstance(value, str):
-			self._date = value
-
-	@property
-	def location(self):
-		""" The docstring for the location property """
-		return self._location
-
-	@location.setter
-	def location(self, value):
-		if isinstance(value, str):
-			self._location = value
+		self.value = value
+		self.date = date
+		self.location = location
 
 	def __eq__(self, other):
 		return self.value == other.value
