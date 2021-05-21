@@ -1,3 +1,7 @@
+CELSIUS = "Celsius"
+FAHRENHEIT = "Fahrenheit"
+
+
 class TemperatureReading:
 	""" Class representing temperature info.
 	    It includes comparison operators
@@ -9,6 +13,22 @@ class TemperatureReading:
 		self.date = date
 		self.location = location
 		self.scale = scale
+
+	def convert(self):
+		""" convert the temperature to a different scale """
+		print(self.scale)
+		print(CELSIUS)
+		print(self.scale == CELSIUS)
+		if self.scale == CELSIUS:
+			return TemperatureReading(celsius_to_fahrenheit(self.temp),
+			                          self.date,
+			                          self.location,
+			                          FAHRENHEIT)
+		else:
+			return TemperatureReading(fahrenheit_to_celsius(self.temp),
+			                          self.date,
+			                          self.location,
+			                          CELSIUS)
 
 	def __add__(self, other):
 		if isinstance(other, int) or isinstance(other, float):
@@ -104,6 +124,10 @@ def median(data):
 
 def celsius_to_fahrenheit(celsius):
 	return (celsius * 9 / 5) + 32
+
+
+def fahrenheit_to_celsius(fahrenheit):
+	return (fahrenheit - 32) * 5/9
 
 
 # Set up the data the data file

@@ -1,3 +1,10 @@
+from utils import celsius_to_fahrenheit
+from utils import fahrenheit_to_celsius
+
+CELSIUS = "Celsius"
+FAHRENHEIT = "Fahrenheit"
+
+
 class InvalidTemperatureException(Exception):
 	""" Valid Ages must be between 0 and 120 """
 
@@ -53,6 +60,22 @@ class TemperatureReading(Reading):
 	def __init__(self, temp, date, location, scale):
 		super().__init__(temp, date, location)
 		self.scale = scale
+
+	def convert(self):
+		""" convert the temperature to a different scale """
+		print(self.scale)
+		print(CELSIUS)
+		print(self.scale == CELSIUS)
+		if self.scale == CELSIUS:
+			return TemperatureReading(celsius_to_fahrenheit(self.temp),
+			                          self.date,
+			                          self.location,
+			                          FAHRENHEIT)
+		else:
+			return TemperatureReading(fahrenheit_to_celsius(self.temp),
+			                          self.date,
+			                          self.location,
+			                          CELSIUS)
 
 	def __add__(self, other):
 		if isinstance(other, int) or isinstance(other, float):
