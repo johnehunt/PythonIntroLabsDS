@@ -23,9 +23,13 @@ def average(data):
 		return sum(raw_data) / len(raw_data)
 
 
-def minimum(data):
+def minimum(data, index=0):
 	result = None
-	for item in data:
+	if index == 0:
+		data_slice = data
+	else:
+		data_slice = data[index:]
+	for item in data_slice:
 		if result is None:
 			result = item
 		elif result.temp > item.temp:
@@ -33,9 +37,13 @@ def minimum(data):
 	return result
 
 
-def maximum(data):
+def maximum(data, index=0):
 	result = None
-	for item in data:
+	if index == 0:
+		data_slice = data
+	else:
+		data_slice = data[index:]
+	for item in data_slice:
 		if result is None:
 			result = item
 		elif result.temp < item.temp:
@@ -47,31 +55,13 @@ def data_range(data):
 	return minimum(data), maximum(data)
 
 
-def bubble_sort(data):
-	data_list = list(data)
-	pass_number = 0
-	for i in range(len(data_list) - 1, 0, -1):
-		exchanges = False
-		pass_number += 1
-		for j in range(0, i):
-			if data_list[j].temp > data_list[j + 1].temp:
-				exchanges = True
-				temp = data_list[j]
-				data_list[j] = data_list[j + 1]
-				data_list[j + 1] = temp
-		if not exchanges:
-			break
-	return data_list
-
-
 def extract_readings(reading):
 	return reading.temp
 
 
 def median(data):
-
 	data.sort(key=extract_readings)
-	print(*data, sep = ", ")
+	print(*data, sep=", ")
 
 	# sorted_data = bubble_sort(data)
 	data_length = len(data)
@@ -97,7 +87,6 @@ readings = [
 		TemperatureReading(14.6, '05/05/20', 'London', 'Celsius'),
 		TemperatureReading(15.6, '05/05/20', 'London', 'Celsius')
 ]
-
 
 print('All Temperature Readings:')
 print(*readings, sep=", ")
@@ -125,4 +114,3 @@ readings_range = data_range(readings)
 print('Range of temperatures from ', str(readings_range[0].temp) + ' to ' + str(readings_range[1].temp))
 
 print('Done')
-

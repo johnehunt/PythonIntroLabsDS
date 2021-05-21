@@ -55,16 +55,40 @@ def average(data):
 		return sum(raw_data) / len(raw_data)
 
 
-def minimum(data):
-	return min(data)
+def minimum(data, index=0):
+	result = None
+	if index == 0:
+		data_slice = data
+	else:
+		data_slice = data[index:]
+	for item in data_slice:
+		if result is None:
+			result = item
+		elif result.temp > item.temp:
+			result = item
+	return result
 
 
-def maximum(data):
-	return max(data)
+def maximum(data, index=0):
+	result = None
+	if index == 0:
+		data_slice = data
+	else:
+		data_slice = data[index:]
+	for item in data_slice:
+		if result is None:
+			result = item
+		elif result.temp < item.temp:
+			result = item
+	return result
 
 
 def data_range(data):
 	return minimum(data), maximum(data)
+
+
+def extract_readings(reading):
+	return reading.temp
 
 
 def median(data):
