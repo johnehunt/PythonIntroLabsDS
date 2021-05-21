@@ -1,4 +1,7 @@
+
+print('Starting factorial calculation program')
 number = input('Please input the number: ')
+print(f'The number to calculate factorial for is {number}')
 
 if number.isnumeric():
     num = int(number)
