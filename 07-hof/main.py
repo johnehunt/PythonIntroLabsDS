@@ -45,6 +45,8 @@ def celsius_to_fahrenheit(celsius):
 # Set up the data the data file
 readings = [13.5, 12.6, 15.3, 12.2, 16.6, 14.6, 15.6]
 
+print(f'Readings: {readings}')
+
 # Find minimum, maximum etc in readings
 print('Min temp in list =', minimum(readings))
 print('Max temp in list =', maximum(readings))
@@ -54,16 +56,20 @@ readings_range = data_range(readings)
 print('Range of temperatures from ', str(readings_range[0]) + ' to ' + str(readings_range[1]))
 
 # Convert all the temperatures from Celsius to fahrenheit
-fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r), readings))
-print('Fahrenheit Temperatures:', fahrenheit_temperatures)
+fahrenheit_temperatures = list(map(celsius_to_fahrenheit, readings))
+print(f'Fahrenheit Temperatures: {fahrenheit_temperatures}')
 
 # Find all temperatures above 14.0
 higher_temperatures = list(filter(lambda r: r > 14.0, readings))
-print('Temperatures above 14.0:', higher_temperatures)
+print(f'Temperatures above 14.0: {higher_temperatures}')
 
 # Total all the readings
 result = reduce(lambda total, value: total + value, readings)
 print(f'Total value of all readings is {result}')
+
+# Convert all readings above 14.0 to fahrenheit
+converted_temperatures = list(map(celsius_to_fahrenheit, filter(lambda r: r > 15.5, readings)))
+print(f'Fahrenheit Temperatures above 14.0c: {converted_temperatures}')
 
 print('Done')
 
