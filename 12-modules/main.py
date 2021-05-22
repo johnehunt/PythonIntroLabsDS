@@ -1,6 +1,5 @@
 from readings import TemperatureReading
 from readings import RainfallReading
-from readings import InvalidTemperatureException
 from utils import *
 
 
