@@ -212,7 +212,7 @@ rainfall_readings = [
 		RainfallReading(1.6, '05/05/20', '10:45', 'London')
 ]
 
-print('All Fainfall Readings:')
+print('All Rainfall Readings:')
 print(*rainfall_readings, sep=", ")
 print(f'Average rainfall {average(rainfall_readings)}')
 
