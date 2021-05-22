@@ -170,10 +170,20 @@ print('Range of temperatures from ', str(readings_range[0].temp) + ' to ' + str(
 new_temperature = TemperatureReading(13.5, '01/05/20', 'London', 'Celsius') + TemperatureReading(15.5, '01/05/20', 'London', 'Celsius')
 print('Add two temperatures', new_temperature)
 
+# Add an int to a temperature
 new_temperature = TemperatureReading(13.5, '01/05/20', 'London', 'Celsius') + 5
 print('Add a temperature and a int', new_temperature)
 
+# Add a float to a temperature
 new_temperature = TemperatureReading(13.5, '01/05/20', 'London', 'Celsius') + 5.5
 print('Add a temperature and a float', new_temperature)
+
+another_temperature = TemperatureReading(13.5, '01/05/20', 'London', 'Celsius')
+print(new_temperature > another_temperature)
+print(new_temperature >= another_temperature)
+print(new_temperature == another_temperature)
+print(new_temperature != another_temperature)
+print(new_temperature < another_temperature)
+print(new_temperature <= another_temperature)
 
 print('Done')
