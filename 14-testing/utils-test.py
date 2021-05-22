@@ -1,6 +1,7 @@
 from math import isclose
 
 from readings import TemperatureReading
+from readings import CELSIUS
 from utils import *
 
 data = [
@@ -8,9 +9,9 @@ data = [
 ]
 
 readings = [
-		TemperatureReading(14.5, '01/01/21', 'London', 'Celsius'),
-		TemperatureReading(15.5, '02/01/21', 'London', 'Celsius'),
-		TemperatureReading(16.5, '03/01/21', 'London', 'Celsius')
+		TemperatureReading(14.5, '01/01/21', 'London', CELSIUS),
+		TemperatureReading(15.5, '02/01/21', 'London', CELSIUS),
+		TemperatureReading(16.5, '03/01/21', 'London', CELSIUS)
 ]
 
 
@@ -21,7 +22,7 @@ def test_min_int():
 
 def test_min_temperature():
 	result = minimum(readings)
-	assert result == TemperatureReading(14.5, '01/01/21', 'London', 'Celsius')
+	assert result == TemperatureReading(14.5, '01/01/21', 'London', CELSIUS)
 
 
 def test_max_int():
@@ -31,7 +32,7 @@ def test_max_int():
 
 def test_max_temperature():
 	result = maximum(readings)
-	assert result == TemperatureReading(16.5, '03/01/21', 'London', 'Celsius')
+	assert result == TemperatureReading(16.5, '03/01/21', 'London', CELSIUS)
 
 
 def test_average_int():
@@ -51,7 +52,7 @@ def test_median_int():
 
 def test_median_temperature():
 	result = median(readings)
-	assert result == TemperatureReading(15.5, '02/01/21', 'London', 'Celsius')
+	assert result == TemperatureReading(15.5, '02/01/21', 'London', CELSIUS)
 
 
 def test_data_range_ints():
@@ -61,5 +62,5 @@ def test_data_range_ints():
 
 def test_data_range_temperatures():
 	readings_range = data_range(readings)
-	assert readings_range[0] == TemperatureReading(14.5, '01/01/21', 'London', 'Celsius')
-	assert readings_range[1] == TemperatureReading(16.5, '03/01/21', 'London', 'Celsius')
+	assert readings_range[0] == TemperatureReading(14.5, '01/01/21', 'London', CELSIUS)
+	assert readings_range[1] == TemperatureReading(16.5, '03/01/21', 'London', CELSIUS)
