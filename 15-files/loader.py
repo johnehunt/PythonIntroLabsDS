@@ -12,7 +12,7 @@ def load_data(filename):
 		for row in reader:
 			row_length = len(row)
 			if row_length != 4:
-				print('Error in data (length is not 3):', row)
+				print('Error in data (length is not 4):', row)
 				print('In line:', reader.line_num)
 			else:
 				temp = float(row[0])
