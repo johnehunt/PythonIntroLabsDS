@@ -28,9 +28,6 @@ def main():
 	higher_temperatures = list(filter(lambda r: r.value > 14.0, readings))
 	print('Temperatures above 14.0:', higher_temperatures)
 
-	# Generate a range for the indexes of the bar chart
-	index = range(len(readings))
-
 	# Find minimum, maximum etc in readings
 	print('Min temp in list =', minimum(readings))
 	print('Max temp in list =', maximum(readings))
@@ -69,6 +66,11 @@ def main():
 	except InvalidTemperatureException as e:
 		print(e)
 
+	# Set the size of the graph
+	pyplot.figure(figsize=(10, 8))
+
+	# Generate a range for the indexes of the bar chart
+	index = range(len(readings))
 	# Set up the bar chart
 	pyplot.bar(index, temperatures, tick_label=dates)
 	pyplot.xticks(rotation=750)
