@@ -40,6 +40,10 @@ def celsius_to_fahrenheit(celsius):
 	return (celsius * 9 / 5) + 32
 
 
+def fahrenheit_to_celsius(fahrenheit):
+	return (fahrenheit - 32) * 5 / 9
+
+
 # Set up the readings to process
 readings = [13.5, 11.1, 17.5, 12.6, 15.3, 12.2, 16.6, 14.6]
 
