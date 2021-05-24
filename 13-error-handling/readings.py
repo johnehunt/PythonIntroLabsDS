@@ -5,8 +5,8 @@ CELSIUS = "Celsius"
 FAHRENHEIT = "Fahrenheit"
 
 
-class InvalidTemperatureException(Exception):
-	""" Valid Ages must be between 0 and 120 """
+class InvalidTemperatureException(ValueError):
+	""" Represents an invalid Temperature reading """
 
 	def __init__(self, value, message):
 		self.value = value
