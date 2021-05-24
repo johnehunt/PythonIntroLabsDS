@@ -67,7 +67,7 @@ def main():
 	print(f'Average rainfall {average(rainfall_readings)}')
 
 	try:
-		new_temperature = TemperatureReading(13.5, '01/05/20', 'London', 'Celsius') + '5.5'
+		TemperatureReading(13.5, '01/05/20', 'London', 'Celsius') + '5.5'
 	except InvalidTemperatureException as e:
 		print(e)
 
