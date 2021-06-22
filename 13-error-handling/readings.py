@@ -5,7 +5,7 @@ CELSIUS = "Celsius"
 FAHRENHEIT = "Fahrenheit"
 
 
-class InvalidTemperatureException(ValueError):
+class InvalidTemperatureValueException(ValueError):
 	""" Represents an invalid Temperature reading """
 
 	def __init__(self, value, message):
@@ -84,7 +84,7 @@ class TemperatureReading(Reading):
 			new_value = self.value + other.value
 		else:
 			# Something is wrong its not an int, a float or a temperature reading
-			raise InvalidTemperatureException(other, 'Invalid type for addition to TemperatureReading')
+			raise InvalidTemperatureValueException(other, 'Invalid type for addition to TemperatureReading')
 
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
 
@@ -94,7 +94,7 @@ class TemperatureReading(Reading):
 		elif isinstance(other, TemperatureReading):
 			new_value = self.value - other.value
 		else:
-			raise InvalidTemperatureException(other, 'Invalid type for subtraction from TemperatureReading')
+			raise InvalidTemperatureValueException(other, 'Invalid type for subtraction from TemperatureReading')
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
 
 	def __str__(self):
@@ -114,7 +114,7 @@ class RainfallReading(Reading):
 		elif isinstance(other, RainfallReading):
 			new_value = self.value + other.value
 		else:
-			raise InvalidTemperatureException(other, 'Invalid type for addition to RainfallReading')
+			raise InvalidTemperatureValueException(other, 'Invalid type for addition to RainfallReading')
 		return RainfallReading(new_value, self.date, self.time, self.location)
 
 	def __sub__(self, other):
@@ -123,7 +123,7 @@ class RainfallReading(Reading):
 		elif isinstance(other, RainfallReading):
 			new_value = self.value - other.value
 		else:
-			raise InvalidTemperatureException(other, 'Invalid type for subtraction from RainfallReading')
+			raise InvalidTemperatureValueException(other, 'Invalid type for subtraction from RainfallReading')
 		return RainfallReading(new_value, self.date, self.time, self.location)
 
 	def __str__(self):

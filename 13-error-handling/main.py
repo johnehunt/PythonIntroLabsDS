@@ -1,6 +1,6 @@
 from readings import TemperatureReading
 from readings import RainfallReading
-from readings import InvalidTemperatureException
+from readings import InvalidTemperatureValueException
 from utils import *
 
 
@@ -68,7 +68,7 @@ def main():
 
 	try:
 		TemperatureReading(13.5, '01/05/20', 'London', 'Celsius') + '5.5'
-	except InvalidTemperatureException as e:
+	except InvalidTemperatureValueException as e:
 		print(e)
 
 	print('Done')
