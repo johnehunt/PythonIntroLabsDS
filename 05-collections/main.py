@@ -24,11 +24,11 @@ print(f'There are {readings.count(0.0)} Zero readings')
 
 readings_copy = readings.copy()
 print('Copy of temperature readings:', readings_copy)
-
+print('Appending 5.5 to copy')
 readings_copy.append(5.5)
+print('Copy of Temperature readings:', readings_copy)
 
 print('Temperature readings:', readings)
-print('Copy of Temperature readings:', readings_copy)
 
 print(f'Popping element from end of copy list {readings_copy.pop()}')
 print(f'Readings copy now contains {readings_copy}')
