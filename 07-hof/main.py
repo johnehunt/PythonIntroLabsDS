@@ -57,7 +57,7 @@ print('Max temp in list =', maximum(readings))
 print('Average temperature = {:.2f}'.format(average(readings)))
 print('Median temperature value =', median(readings))
 readings_range = data_range(readings)
-print('Range of temperatures from ', str(readings_range[0]) + ' to ' + str(readings_range[1]))
+print(f'Range of temperatures from {readings_range[0]} to {readings_range[1]}')
 
 # Convert all the temperatures from Celsius to fahrenheit
 fahrenheit_temperatures = list(map(celsius_to_fahrenheit, readings))
