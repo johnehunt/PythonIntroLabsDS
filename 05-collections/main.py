@@ -32,3 +32,5 @@ print('Temperature readings:', readings)
 
 print(f'Popping element from end of copy list {readings_copy.pop()}')
 print(f'Readings copy now contains {readings_copy}')
+
+# To pop the first element use readings_copy.pop(0)
