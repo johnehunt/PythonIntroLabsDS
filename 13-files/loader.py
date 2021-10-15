@@ -7,7 +7,7 @@ from readings import TemperatureReading
 def load_data(filename):
 	data = []
 	print('Loading file', filename)
-	with open(filename, newline='') as csvfile:
+	with open(filename) as csvfile:
 		reader = csv.reader(csvfile)
 		for row in reader:
 			row_length = len(row)
