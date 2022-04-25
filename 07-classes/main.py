@@ -13,9 +13,6 @@ class TemperatureReading:
 
 	def convert(self):
 		""" convert the temperature to a different scale """
-		print(self.scale)
-		print(CELSIUS)
-		print(self.scale == CELSIUS)
 		if self.scale == CELSIUS:
 			return TemperatureReading(celsius_to_fahrenheit(self.temp),
 			                          self.date,

@@ -8,7 +8,6 @@ def median(data):
 	sorted_data = sorted(data)
 	data_length = len(data)
 	index = (data_length - 1) // 2
-
 	if data_length % 2:
 		return sorted_data[index]
 	else:
@@ -47,8 +46,9 @@ def fahrenheit_to_celsius(fahrenheit):
 # Set up the readings to process
 readings = [13.5, 11.1, 17.5, 12.6, 15.3, 12.2, 16.6, 14.6]
 
-# Find the average and median values
+# Find the average and median values - note old and new style of formatting
 print('Average temperature = {:.2f}'.format(average(readings)))
+print(f'Average temperature = {average(readings):.2f}')
 print(f'Median temperature value = {median(readings)}')
 
 # Find minimum, maximum etc in readings
