@@ -65,12 +65,12 @@ def main():
 	print('Temperatures:', temperatures)
 	dates = list(map(lambda r: r.date, readings))
 	print('Dates:', dates)
+	# Generate a range for the indexes of the bar chart
+	index = range(len(readings))
 
 	# Set the size of the graph
 	pyplot.figure(figsize=(10, 8))
 
-	# Generate a range for the indexes of the bar chart
-	index = range(len(readings))
 	# Set up the bar chart
 	pyplot.bar(index, temperatures, tick_label=dates)
 	pyplot.xticks(rotation=750)

@@ -4,9 +4,7 @@ from readings import TemperatureReading
 from readings import CELSIUS
 from utils import *
 
-data = [
-		2, 3, 4, 5, 6, 5, 4
-]
+data = [2, 3, 4, 5, 6, 5, 4]
 
 readings = [
 		TemperatureReading(14.5, '01/01/21', 'London', CELSIUS),
