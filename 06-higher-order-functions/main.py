@@ -68,7 +68,7 @@ higher_temperatures = list(filter(lambda r: r > 14.0, readings))
 print(f'Temperatures above 14.0: {higher_temperatures}')
 
 # Total all the readings
-result = reduce(lambda total, value: total + value, readings)
+result = sum(readings)
 print(f'Total value of all readings is {result}')
 
 # Convert all readings above 14.0 to fahrenheit
