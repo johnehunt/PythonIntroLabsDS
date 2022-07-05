@@ -94,7 +94,7 @@ def fahrenheit_to_celsius(fahrenheit):
     return (fahrenheit - 32) * 5 / 9
 
 
-# Set up the data the data file
+# Set up the data
 readings = [
         TemperatureReading(13.5, '01/05/20', 'London', CELSIUS),
         TemperatureReading(12.6, '02/05/20', 'London', CELSIUS),
