@@ -1,14 +1,16 @@
-
 print('Starting factorial calculation program')
 number = input('Please input the number: ')
 print(f'The number to calculate factorial for is {number}')
 
-if number.isnumeric():
+if number.count('-') > 0:
+    print('Factorial not defined for negative numbers')
+elif number.isnumeric():
     num = int(number)
 
     if num == 0:
-        # Termination criteria
         print('0! factorial is 1')
+    elif num == 1:
+        print('1! factorial is 1')
     else:
         # Loop element
         factorial = 1
