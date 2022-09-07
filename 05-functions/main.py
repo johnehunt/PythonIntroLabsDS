@@ -59,8 +59,9 @@ print(f'Max temp in list = {maximum(readings)}')
 print(f'Max temp in list starting position 4 = {maximum(readings, 3)}')
 
 readings_range = data_range(readings)
-print('Range of temperatures from ', str(readings_range[0]) + ' to ' + str(readings_range[1]))
+print(f'Range of temperatures from {readings_range[0]} to {readings_range[1]}')
 
-print('13.5 celsius as fahrenheit -', celsius_to_fahrenheit(13.5))
+print(f'13.5 celsius as fahrenheit - {celsius_to_fahrenheit(13.5)}')
+print(f'56.3 fahrenheit as celsius - {fahrenheit_to_celsius(56.3):.1f}')
 
 print('Done')
