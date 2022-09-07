@@ -68,6 +68,10 @@ higher_temperatures = list(filter(lambda r: r > 14.0, readings))
 print(f'Temperatures above 14.0: {higher_temperatures}')
 
 # Total all the readings
+total_of_readings = sum(readings)
+print(f'Total of all readings = {total_of_readings}')
+
+# Total of all readings using reduce
 result = reduce(lambda total, value: total + value, readings)
 print(f'Total value of all readings is {result}')
 
