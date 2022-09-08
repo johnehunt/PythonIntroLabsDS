@@ -50,12 +50,12 @@ class TemperatureReading(Reading):
 	def convert(self):
 		""" convert the temperature to a different scale """
 		if self.scale == CELSIUS:
-			return TemperatureReading(celsius_to_fahrenheit(self.temp),
+			return TemperatureReading(celsius_to_fahrenheit(self.value),
 			                          self.date,
 			                          self.location,
 			                          FAHRENHEIT)
 		else:
-			return TemperatureReading(fahrenheit_to_celsius(self.temp),
+			return TemperatureReading(fahrenheit_to_celsius(self.value),
 			                          self.date,
 			                          self.location,
 			                          CELSIUS)
