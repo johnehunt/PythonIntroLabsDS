@@ -2,10 +2,12 @@
 
 
 def average(data):
+    """returns the average of the values in the data iterable"""
     return sum(data) / len(data)
 
 
 def median(data):
+    """calculates the median value in an iterable"""
     sorted_data = sorted(data)
     data_length = len(data)
     index = (data_length - 1) // 2
@@ -14,7 +16,6 @@ def median(data):
     else:
         return (sorted_data[index] +
                 sorted_data[index + 1]) / 2.0
-
 
 def minimum(data, index=0):
     if index == 0:
