@@ -7,7 +7,7 @@ def average(data):
 
 
 def median(data):
-    """calculates the median value in an iterable"""
+    """calculates the median value in a list or tuple"""
     sorted_data = sorted(data)
     data_length = len(data)
     index = (data_length - 1) // 2
@@ -17,7 +17,9 @@ def median(data):
         return (sorted_data[index] +
                 sorted_data[index + 1]) / 2.0
 
+
 def minimum(data, index=0):
+    """returns the minimum value in a list or tuple starting at index"""
     if index == 0:
         data_slice = data
     else:
@@ -26,6 +28,7 @@ def minimum(data, index=0):
 
 
 def maximum(data, index=0):
+    """returns the maximum value in a list or tuple starting at index"""
     if index == 0:
         data_slice = data
     else:
@@ -34,6 +37,7 @@ def maximum(data, index=0):
 
 
 def data_range(data):
+    """returns the minimum and maximum values in data"""
     return minimum(data), maximum(data)
 
 
