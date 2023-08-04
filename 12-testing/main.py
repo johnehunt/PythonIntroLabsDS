@@ -17,7 +17,7 @@ def main():
 	]
 
 	print('All Temperature Readings:')
-	print(*readings, sep=", ")
+	print(readings)
 
 	# Convert all the temperatures from Celsius to fahrenheit
 	fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.value), readings))

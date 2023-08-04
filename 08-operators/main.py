@@ -62,6 +62,9 @@ class TemperatureReading:
 	def __le__(self, other):
 		return self.temp <= other.temp
 
+	def __repr__(self):
+		return f'TemperatureReading({self.temp}, {self.date}, {self.location}, {self.scale})'
+
 	def __str__(self):
 		return 'TemperatureReading[' + self.scale + '](' + str(self.temp) + ' on ' + str(self.date) + ' at ' + str(
 				self.location) + ')'
@@ -142,7 +145,7 @@ readings = [
 ]
 
 print('All Temperature Readings:')
-print(*readings, sep=", ")
+print(readings)
 
 # Convert all the temperatures from Celsius to fahrenheit
 fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.temp), readings))

@@ -24,8 +24,11 @@ class TemperatureReading:
                                       self.location,
                                       CELSIUS)
 
+    def __repr__(self):
+        return f'TemperatureReading({self.temp}, {self.date}, {self.location}, {self.scale})'
+
     def __str__(self):
-        return f'TemperatureReading[{self.scale}]({self.temp} on {self.date} at {self.location})'
+        return f'TemperatureReading[{self.scale}]({self.temp} on {self.date} at {self.location}'
 
 
 def average(data):
@@ -106,7 +109,7 @@ readings = [
 ]
 
 print('All Temperature Readings:')
-print(*readings, sep=", ")
+print(readings)
 
 # Convert all the temperatures from Celsius to fahrenheit
 fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.temp), readings))

@@ -67,12 +67,12 @@ class TemperatureReading(Reading):
 		print(CELSIUS)
 		print(self.scale == CELSIUS)
 		if self.scale == CELSIUS:
-			return TemperatureReading(celsius_to_fahrenheit(self.temp),
+			return TemperatureReading(celsius_to_fahrenheit(self.value),
 			                          self.date,
 			                          self.location,
 			                          FAHRENHEIT)
 		else:
-			return TemperatureReading(fahrenheit_to_celsius(self.temp),
+			return TemperatureReading(fahrenheit_to_celsius(self.value),
 			                          self.date,
 			                          self.location,
 			                          CELSIUS)
@@ -96,6 +96,9 @@ class TemperatureReading(Reading):
 		else:
 			raise InvalidTemperatureValueException(other, 'Invalid type for subtraction from TemperatureReading')
 		return TemperatureReading(new_value, self.date, self.location, self.scale)
+
+	def __repr__(self):
+		return f'TemperatureReading({self.value}, {self.date}, {self.location}, {self.scale})'
 
 	def __str__(self):
 		return 'TemperatureReading[' + self.scale + '](' + super().__str__() + ')'
@@ -125,6 +128,9 @@ class RainfallReading(Reading):
 		else:
 			raise InvalidTemperatureValueException(other, 'Invalid type for subtraction from RainfallReading')
 		return RainfallReading(new_value, self.date, self.time, self.location)
+
+	def __repr__(self):
+		return f'RainfallReading({self.value}, {self.date}, {self.time}, {self.location})'
 
 	def __str__(self):
 		return 'RainfallReading[' + self.time + '](' + super().__str__() + ')'
