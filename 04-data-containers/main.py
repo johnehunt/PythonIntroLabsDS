@@ -4,7 +4,8 @@ while True:
     input_string = input('Please enter a temperature reading (-1 to end): ')
     if input_string == '-1':
         break
-    elif input_string.count('.') > 1 or not input_string.replace('.', '').isnumeric():
+    elif (input_string.count('.') > 1
+          or not input_string.replace('.', '').isnumeric()):
         print('Must be a positive floating point number')
     else:
         reading = float(input_string)
@@ -21,6 +22,8 @@ readings.reverse()
 print('Temperature readings in reverse:', readings)
 
 print(f'There are {readings.count(0.0)} Zero readings')
+
+print('-' * 30)
 
 readings_copy = readings.copy()
 print('Copy of temperature readings:', readings_copy)

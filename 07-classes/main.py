@@ -2,6 +2,14 @@ CELSIUS = "Celsius"
 FAHRENHEIT = "Fahrenheit"
 
 
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9 / 5) + 32
+
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
+
+
 class TemperatureReading:
     """ Class representing temperature info """
 
@@ -21,14 +29,13 @@ class TemperatureReading:
         else:
             return TemperatureReading(fahrenheit_to_celsius(self.temp),
                                       self.date,
-                                      self.location,
-                                      CELSIUS)
+                                      self.location)
 
     def __repr__(self):
-        return f'TemperatureReading({self.temp}, {self.date}, {self.location}, {self.scale})'
+        return f'TemperatureReading(temp={self.temp}, date={self.date}, location={self.location}, scale={self.scale})'
 
     def __str__(self):
-        return f'TemperatureReading[{self.scale}]({self.temp} on {self.date} at {self.location}'
+        return f'TemperatureReading[{self.scale}]({self.temp} on {self.date} at {self.location})'
 
 
 def average(data):
@@ -89,13 +96,6 @@ def median(data):
         return (data[index] + data[index + 1]) / 2.0
 
 
-def celsius_to_fahrenheit(celsius):
-    return (celsius * 9 / 5) + 32
-
-
-def fahrenheit_to_celsius(fahrenheit):
-    return (fahrenheit - 32) * 5 / 9
-
 
 # Set up the data
 readings = [
@@ -110,28 +110,11 @@ readings = [
 
 print('All Temperature Readings:')
 print(readings)
-
-# Convert all the temperatures from Celsius to fahrenheit
-fahrenheit_temperatures = list(map(lambda r: celsius_to_fahrenheit(r.temp), readings))
-print('Fahrenheit Temperatures:', fahrenheit_temperatures)
-
-# Obtain just the temperatures, dates and the indexes for each value
-temperatures = list(map(lambda r: r.temp, readings))
-print('Temperatures:', temperatures)
-dates = list(map(lambda r: r.date, readings))
-print('Dates:', dates)
+print(len(readings))
 
 # Find all temperatures above 14.0
-higher_temperatures = list(filter(lambda r: r.temp > 14.0, readings))
-print('Temperatures above 14.0:', *higher_temperatures)
-
-# Find minimum, maximum etc in readings
-print('Min temp in list =', minimum(readings))
-print('Max temp in list =', maximum(readings))
-print('Average temperature = {:.2f}'.format(average(readings)))
-print('Median temperature value =', median(readings))
-readings_range = data_range(readings)
-print('Range of temperatures from ', str(readings_range[0].temp) + ' to ' + str(readings_range[1].temp))
+higher_temperatures = list(filter(lambda t: t.temp > 14.0, readings))
+print('Temperatures above 14.0:\n\t', higher_temperatures)
 
 temp1 = TemperatureReading(13.5, '01/05/20', 'London', CELSIUS)
 temp2 = temp1.convert()

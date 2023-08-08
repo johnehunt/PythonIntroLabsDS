@@ -55,13 +55,24 @@ print('-' * 25)
 fahrenheit_temperatures = list(map(celsius_to_fahrenheit, readings))
 print(f'Fahrenheit Temperatures: {fahrenheit_temperatures}')
 
+fahrenheit_temperatures2 = list(map(lambda celsius: (celsius * 9 / 5) + 32, readings))
+print(f'Fahrenheit Temperatures2: {fahrenheit_temperatures2}')
+
 # Find all temperatures above 14.0
-higher_temperatures = list(filter(lambda r: r > 14.0, readings))
+higher_temperatures = list(filter(lambda t: t > 14.0, readings))
 print(f'Temperatures above 14.0: {higher_temperatures}')
 
 # Convert all readings above 14.0 to Fahrenheit
 converted_temperatures = list(map(celsius_to_fahrenheit,
-                                  filter(lambda r: r > 15.5, readings)))
+                                  filter(lambda r: r > 14.0, readings)))
 print(f'Fahrenheit Temperatures above 14.0c: {converted_temperatures}')
+
+print('- printing')
+
+print(list(map(lambda t: f'{t:.2f}', converted_temperatures)))
+
+# List comprehension
+output = [f'{t:.2f}' for t in converted_temperatures]
+print(output)
 
 print('Done')
