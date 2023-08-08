@@ -11,7 +11,7 @@ def median(data):
     sorted_data = sorted(data)
     data_length = len(data)
     index = (data_length - 1) // 2
-    if data_length % 2 == 1: # checks for an odd number
+    if data_length % 2 == 1:  # checks for an odd number
         return sorted_data[index]
     else:
         return (sorted_data[index] +
