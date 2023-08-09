@@ -106,7 +106,7 @@ class RainfallReading(Reading):
         return RainfallReading(new_value, self.date, self.time, self.location)
 
     def __repr__(self):
-        return f'RainfallReading {super().__repr__()}, time={self.time})'
+        return f'RainfallReading({super().__repr__()}, time={self.time})'
 
     def __str__(self):
         return 'RainfallReading[' + self.time + '](' + super().__str__() + ')'
@@ -163,7 +163,7 @@ def fahrenheit_to_celsius(fahrenheit):
     return (fahrenheit - 32) * 5 / 9
 
 
-# Set up the data the data file
+# Set up the data
 readings = [
         TemperatureReading(13.5, '01/05/20', 'London', 'Celsius'),
         TemperatureReading(12.6, '02/05/20', 'London', 'Celsius'),
