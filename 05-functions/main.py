@@ -20,25 +20,17 @@ def median(data):
 
 def minimum(data, index=0):
     """returns the minimum value in a list or tuple starting at index"""
-    if index == 0:
-        data_slice = data
-    else:
-        data_slice = data[index:]
-    return min(data_slice)
+    return min(data[index:])
 
 
 def maximum(data, index=0):
     """returns the maximum value in a list or tuple starting at index"""
-    if index == 0:
-        data_slice = data
-    else:
-        data_slice = data[index:]
-    return max(data_slice)
+    return max(data[index:])
 
 
 def data_range(data):
     """returns the minimum and maximum values in data"""
-    return minimum(data), maximum(data)
+    return min(data), max(data)
 
 
 def celsius_to_fahrenheit(celsius):
