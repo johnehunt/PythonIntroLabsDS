@@ -32,7 +32,7 @@ class TemperatureReading:
                                       self.location)
 
     def __repr__(self):
-        return f'TemperatureReading(temp={self.temp}, date={self.date}, location={self.location}, scale={self.scale})'
+        return f"TemperatureReading(temp={self.temp}, date='{self.date}', location='{self.location}', scale='{self.scale}')"
 
     def __str__(self):
         return f'TemperatureReading[{self.scale}]({self.temp} on {self.date} at {self.location})'
